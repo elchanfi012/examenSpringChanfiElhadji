@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+	<title>Liste d'annonces</title>
+	<th:block th:include="~{fragments/include::stylesheets}"></th:block>
+</head>
+<body>
+	
+	<div th:include="~{fragments/include::header}"></div>
+	
+	<main>
+		<section class="container-fluid mt-5">
+
+			<div class="row">
+				<div class="col-md-8 mx-auto">
+					<div class="d-flex justify-content-end">
+						<a th:href="@{/advert/add}" class="btn btn-outline-primary btn-sm mb-3">Ajouter</a>
+					</div>
+				
+					<div class="card mt-3">
+						<h1 class="card-header text-center">Liste d'annonces</h1>
+						
+						<div class="card-body">
+							<div class="row">
+								<div th:each="advert : ${adverts}" class="col-md-4">
+									<div class="card my-2">
+										<div class="card-body">
+											<p th:text="${advert.title}" class="card-title text-center"></p>
+											
+											<a th:href="@{/advert/{id}(id=${advert.id})}" class="btn btn-outline-secondary btn-sm">Consulter</a>
+											<a th:href="@{/advert/edit/{id}(id=${advert.id})}" class="btn btn-outline-success btn-sm">Modifier</a>
+											<a th:href="@{/advert/delete/{id}(id=${advert.id})}" class="btn btn-outline-danger btn-sm">Supprimer</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	
+	<th:block th:include="~{fragments/include::scripts}"></th:block>
+</body>
+</html>

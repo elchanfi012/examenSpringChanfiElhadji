@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+	<title>Détail d'une annonce</title>
+	<th:block th:include="~{fragments/include::stylesheets}"></th:block>
+</head>
+<body>
+	
+	<div th:include="~{fragments/include::header}"></div>
+
+	<main>
+		<section class="container-fluid mt-5">
+			<div class="row">
+				<div class="col-md-8 mx-auto">
+					<div class="card mt-3">
+						<h1 th:text="${advert.title}" class="card-header text-center"></h1>
+						
+						<div class="card-body">
+							<div class="row">
+								<div class="col-md-4 mx-auto">
+									<img alt="photo de l'annonce" th:src="${advert.imageLink}"  style="max-width:100%;">
+								</div>
+							 </div>
+							 
+							 <div class="row">
+							 	<div class="col-md-8 mx-auto mt-5">
+							 		<p th:text="${advert.content}" class="text-center"></p>
+							 	</div>
+							 </div>
+							 
+							 <div class="row">
+									<p class="text-center">
+										<span class="fw-bolder"> Date de publication : </span>
+										<span th:text="${#dates.day(advert.publishedAt) +'/'+ #dates.month(advert.publishedAt) +'/'+ #dates.year(advert.publishedAt)}"></span>
+										<span th:text="${' ' + #dates.hour(advert.publishedAt) +':'+ #dates.minute(advert.publishedAt) +':'+ #dates.second(advert.publishedAt)}"></span>
+									</p>
+							 </div>
+							 
+							 
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+
+	<th:block th:include="~{fragments/include::scripts}"></th:block>
+
+
+
+	
+	
+	
+
+</body>
+</html>

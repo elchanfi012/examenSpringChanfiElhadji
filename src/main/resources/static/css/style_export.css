@@ -1,0 +1,28 @@
+.card{
+	max-width: 66%;
+	margin: auto;
+	border: 1px solid black;
+}
+
+.card-img{
+	max-width: 60%;
+	margin: auto;
+}
+
+.card-img img{
+	max-width: 150px;
+}
+
+.card p, .date {
+	max-width: 90%;
+	margin:auto;
+	text-align: center;
+}
+
+h1{
+	text-align: center;
+}
+
+.blod{
+	font-weight: bold;
+}

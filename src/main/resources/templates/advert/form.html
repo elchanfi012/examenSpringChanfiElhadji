@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+	<title th:if="${advert.id == null}"> Formulaire d'ajout</title>
+	<title th:if="${advert.id != null}"> Formulaire d'edition</title>
+	<th:block th:include="~{fragments/include::stylesheets}"></th:block>
+</head>
+<body>
+
+	<div th:include="~{fragments/include::header}"></div>
+	
+		<main>
+		<section class="container-fluid">
+			<div class="row h100vh">
+				<div class="col-md-6 mx-auto my-auto">
+					<div class="card mt-4">
+						<h1 th:if="${advert.id == null}" class="card-header text-center"> Ajouter annonce</h1> 
+						<h1 th:if="${advert.id != null}" class="card-header text-center"> Modifier annonce</h1>
+					
+						
+						<form class="card-body" method="post" th:object="${advert}" enctype="multipart/form-data">
+							<div class="mb-4 form-group">
+								<label class="form-label" for="title"> Titre :</label>
+								<input type="text" th:field="*{title}" class="form-control" id="title" name="title">
+	    						<span th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="form-text text-danger"></span>
+							</div>
+							
+							<div class="mb-4 form-group">
+								<label class="form-label" for="imageLink"> Lien de l'image :</label>
+								<input type="text" th:field="*{imageLink}" class="form-control" id="imageLink" name="imageLink">
+	    						<span th:if="${#fields.hasErrors('imageLink')}" th:errors="*{imageLink}" class="form-text text-danger"></span>
+							</div>
+							
+							<div class="mb-4 form-group">
+								<label class="form-label" for="content">Contenu :</label>
+								<textarea th:field="*{content}" class="form-control" id="content" name="content" rows="3"></textarea>
+								<span th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="form-text text-danger"></span>
+							</div>
+													
+						   <div class="d-flex justify-content-end">
+								<button th:if="${advert.id == null}" type="submit" class="btn btn-primary">Ajouter</button>
+								
+								<button th:if="${advert.id != null}" type="submit" class="btn btn-primary">Modifier</button>
+							</div>
+						</form>										
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	
+	
+	<th:block th:include="~{fragments/include::scripts}"></th:block>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+@charset "UTF-8";
+table, th, td{
+			border: 1px solid black;
+}
+table{
+	border-collapse: collapse;
+	margin: 20px 0;
+}
+.bg_yellow{
+	background-color: yellow;
+}
+.h100vh{
+	height: 100vh;
+}
+.h90vh{
+	height: 90vh;
+}
+
+.nav-item a{
+	color: black !important;
+    text-decoration: none !important;
+}
+
+.nav-item a:hover{
+	color: grey !important;
+    text-decoration: none !important;
+}
+.h500px{
+	height: 500px;
+}

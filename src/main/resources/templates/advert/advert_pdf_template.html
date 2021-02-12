@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{src/main/resources/static/css/style_export.css}" rel="stylesheet"></link>
+
+
+</head>
+<body>
+	<h1> Détail d'une annonce</h1>
+	
+	<div class="card">
+	
+		<p th:text="${advert.title}"></p>
+		
+		<div class="card-img">
+			<img alt="photo de l'annonce" th:src="${advert.imageLink}"  style="max-width:150px;"></img>
+		</div>
+		
+		<p th:text="${advert.content}"></p>
+		
+		<p class="date">
+			<span class="bold"> Date de publication : </span>
+			<span th:text="${#dates.day(advert.publishedAt) +'/'+ #dates.month(advert.publishedAt) +'/'+ #dates.year(advert.publishedAt)}"></span>
+			<span th:text="${' ' + #dates.hour(advert.publishedAt) +':'+ #dates.minute(advert.publishedAt) +':'+ #dates.second(advert.publishedAt)}"></span>
+		</p>
+	
+	
+	</div>
+
+</body>
+</html>
